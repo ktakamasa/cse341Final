@@ -1,12 +1,30 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Task-Oh! API",
+    "title": "Task-Oh! API",
+    "description": "Task management API for cse341",
     "version": "1.0.0"
   },
   "host": "cse341-task-oh.onrender.com",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Operations about users"
+    },
+    {
+      "name": "Projects",
+      "description": "Operations about projects"
+    },
+    {
+      "name": "Tasks",
+      "description": "Operations about tasks"
+    },
+    {
+      "name": "Comments",
+      "description": "Operations about comments"
+    }
+  ],
   "schemes": ["https"],
   "paths": {
     "/api-docs": {
@@ -21,7 +39,9 @@
     },
     "/users/": {
       "get": {
-        "description": "",
+        "tags": ["Users"],
+        "summary": "Get all users",
+        "description": "Get all users",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -33,7 +53,9 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["Users"],
+        "summary": "Create a new user",
+        "description": "Create a new user",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -70,11 +92,13 @@
     },
     "/users/{id}": {
       "get": {
-        "description": "",
+        "tags": ["Users"],
+        "summary": "Get user by user id",
+        "description": "Get user by user id",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "user id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -93,11 +117,13 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": ["Users"],
+        "summary": "Update a user",
+        "description": "Update a user",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "user id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -140,11 +166,13 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["Users"],
+        "summary": "Delete a user",
+        "description": "Delete a user",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "user id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -165,7 +193,9 @@
     },
     "/projects/": {
       "get": {
-        "description": "",
+        "tags": ["Projects"],
+        "summary": "Get all Projects",
+        "description": "Get all Projects",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -177,7 +207,9 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["Projects"],
+        "summary": "Create a new project",
+        "description": "Create a new project",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -217,11 +249,13 @@
     },
     "/projects/{id}": {
       "get": {
-        "description": "",
+        "tags": ["Projects"],
+        "summary": "Get project by project id",
+        "description": "Get project by project id",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "project id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -240,11 +274,13 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": ["Projects"],
+        "summary": "Update a project",
+        "description": "Update a project",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "project id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -287,11 +323,13 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["Projects"],
+        "summary": "Delete a project",
+        "description": "Delete a project",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "project id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -312,7 +350,9 @@
     },
     "/tasks/": {
       "get": {
-        "description": "",
+        "tags": ["Tasks"],
+        "summary": "Get all tasks",
+        "description": "Get all tasks",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -324,7 +364,9 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["Tasks"],
+        "summary": "Create a new task",
+        "description": "Create a new task",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -370,11 +412,13 @@
     },
     "/tasks/{id}": {
       "get": {
-        "description": "",
+        "tags": ["Tasks"],
+        "summary": "Get a task by task id",
+        "description": "Get a task by task id",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "task id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -393,11 +437,13 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": ["Tasks"],
+        "summary": "Update a task",
+        "description": "Update a task",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "task id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -446,11 +492,13 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["Tasks"],
+        "summary": "Delete a task",
+        "description": "Delete a task",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "task id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -471,7 +519,9 @@
     },
     "/comments/": {
       "get": {
-        "description": "",
+        "tags": ["Comments"],
+        "summary": "Get all comments",
+        "description": "Get all comments",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -483,7 +533,9 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["Comments"],
+        "summary": "Create a new comment",
+        "description": "Create a new comment",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -520,11 +572,13 @@
     },
     "/comments/{id}": {
       "get": {
-        "description": "",
+        "tags": ["Comments"],
+        "summary": "Get a comment by comment id",
+        "description": "Get a comment by comment id",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "comment id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -543,11 +597,13 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": ["Comments"],
+        "summary": "Update a comment",
+        "description": "Update a comment",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "comment id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -587,11 +643,13 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["Comments"],
+        "summary": "Delete a comment",
+        "description": "Delete a comment",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "comment id",
             "in": "path",
             "required": true,
             "type": "string"
