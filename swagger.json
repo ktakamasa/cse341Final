@@ -101,7 +101,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "user id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -126,7 +126,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "user id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -175,7 +175,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "user id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -258,7 +258,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "project id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -283,7 +283,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "project id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -332,7 +332,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "project id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -421,7 +421,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "task id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -446,7 +446,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "task id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -501,7 +501,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "task id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -581,7 +581,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "comment id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -606,7 +606,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "comment id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -652,7 +652,7 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "comment id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
