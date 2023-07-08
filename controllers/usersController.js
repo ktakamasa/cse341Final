@@ -1,5 +1,6 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const Validation = require('../middleware/validator');
 
 // get all users from database
 const getAllUsers = async (req, res) => {
