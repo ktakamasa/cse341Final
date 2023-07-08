@@ -37,7 +37,7 @@ function projectValidation(project) {
         description: {type:"string", optional: false, empty: false},
         startDate: {type:"date", optional: false, empty: false},
         endDate: {type:"date", optional: false, empty: false},
-        task: {type:"string", optional: false, empty: false},
+        tasks: {type:"string", optional: false, empty: false},
       }
     
       const v = new Validator();
