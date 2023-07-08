@@ -31,13 +31,6 @@ function taskValidation(task) {
   
   }
 
-title: req.body.title,
-description: req.body.description,
-dueDate: req.body.dueDate,
-assignee: req.body.assignee,
-status: req.body.status,
-priority: req.body.priority,
-project: req.body.project
 
 module.exports = {
     userValidation,
