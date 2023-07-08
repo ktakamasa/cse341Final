@@ -1,5 +1,6 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const validation = require('../middleware/validate');
 
 // get all projects from database
 const getAllProjects = async (req, res) => {
@@ -45,10 +46,20 @@ const createProject = async (req, res) => {
     const project = {
       name: req.body.name,
       description: req.body.description,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate,
+      startDate: new Date(req.body.startDate),
+      endDate: new Date(req.body.endDate),
       tasks: req.body.tasks
     };
+
+    //validation
+    const validationResponse = validation.projectValidation(project);
+
+    if(validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: validationResponse
+      });
+    }
 
     const response = await mongodb
       .getDb()
@@ -82,10 +93,23 @@ const updateProject = async (req, res) => {
     const project = {
       name: req.body.name,
       description: req.body.description,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate,
+      startDate: new Date(req.body.startDate),
+      endDate: new Date(req.body.endDate),
       tasks: req.body.tasks
     };
+
+
+    //validation
+    const validationResponse = validation.projectValidation(project);
+
+    if(validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: validationResponse
+      });
+    }
+
+
     const response = await mongodb
       .getDb()
       .db('task-oh')

@@ -31,8 +31,22 @@ function taskValidation(task) {
   
   }
 
+function projectValidation(project) {
+    const schema = {
+        name: {type:"string", optional: false, empty: false, max: "20"},
+        description: {type:"string", optional: false, empty: false},
+        startDate: {type:"date", optional: false, empty: false},
+        endDate: {type:"date", optional: false, empty: false},
+        task: {type:"string", optional: false, empty: false},
+      }
+    
+      const v = new Validator();
+      return v.validate(project, schema);
+}
+
 
 module.exports = {
     userValidation,
-    taskValidation
+    taskValidation,
+    projectValidation
 }
