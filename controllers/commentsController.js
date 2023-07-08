@@ -1,5 +1,6 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const validation = require('../middleware/validate');
 
 // get all comments from database
 const getAllComments = async (req, res) => {
@@ -49,6 +50,16 @@ const createComment = async (req, res) => {
       project: req.body.project
     };
 
+    //validation
+    const validationResponse = validation.commentValidation(comment);
+
+    if(validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: validationResponse
+      });
+    }
+
     const response = await mongodb
       .getDb()
       .db('task-oh')
@@ -84,6 +95,17 @@ const updateComment = async (req, res) => {
       task: req.body.task,
       project: req.body.project
     };
+
+    //validation
+    const validationResponse = validation.commentValidation(comment);
+
+    if(validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: validationResponse
+      });
+    }
+
     const response = await mongodb
       .getDb()
       .db('task-oh')
