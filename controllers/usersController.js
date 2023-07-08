@@ -50,6 +50,18 @@ const createUser = async (req, res) => {
       password: req.body.password
     };
 
+
+    //validation
+    const validationResponse = Validation(user);
+
+    if(validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: validationResponse
+      });
+    }
+  
+
     const response = await mongodb
       .getDb()
       .db('task-oh')
@@ -84,6 +96,18 @@ const updateUser = async (req, res) => {
       email: req.body.email,
       password: req.body.password
     };
+
+
+    //validation
+    const validationResponse = Validation(user);
+
+    if(validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: validationResponse
+      });
+    }
+
     const response = await mongodb
       .getDb()
       .db('task-oh')
