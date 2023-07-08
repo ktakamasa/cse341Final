@@ -1,6 +1,6 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
-const Validation = require('../middleware/validate');
+const validation = require('../middleware/validate');
 
 // get all users from database
 const getAllUsers = async (req, res) => {
@@ -53,7 +53,7 @@ const createUser = async (req, res) => {
 
 
     //validation
-    const validationResponse = Validation(user);
+    const validationResponse = validation.userValidation(user);
 
     if(validationResponse !== true) {
       return res.status(400).json({
@@ -100,7 +100,7 @@ const updateUser = async (req, res) => {
 
 
     //validation
-    const validationResponse = Validation(user);
+    const validationResponse = validation.userValidation(user);
 
     if(validationResponse !== true) {
       return res.status(400).json({

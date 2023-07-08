@@ -1,5 +1,6 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const validation = require('../middleware/validate');
 
 // get all tasks from database
 const getAllTasks = async (req, res) => {
@@ -45,12 +46,22 @@ const createTask = async (req, res) => {
     const task = {
       title: req.body.title,
       description: req.body.description,
-      dueDate: req.body.dueDate,
+      dueDate: new Date(req.body.dueDate),
       assignee: req.body.assignee,
       status: req.body.status,
       priority: req.body.priority,
       project: req.body.project
     };
+
+    //validation
+    const validationResponse = validation.taskValidation(task);
+
+    if(validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: validationResponse
+      });
+    }
 
     const response = await mongodb
       .getDb()
@@ -82,12 +93,23 @@ const updateTask = async (req, res) => {
     const task = {
       title: req.body.title,
       description: req.body.description,
-      dueDate: req.body.dueDate,
+      dueDate: new Date(req.body.dueDate),
       assignee: req.body.assignee,
       status: req.body.status,
       priority: req.body.priority,
       project: req.body.project
     };
+
+    //validation
+    const validationResponse = validation.taskValidation(task);
+
+    if(validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: validationResponse
+      });
+    }
+
     const response = await mongodb
       .getDb()
       .db('task-oh')
