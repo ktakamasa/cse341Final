@@ -27,6 +27,17 @@
   ],
   "schemes": ["https"],
   "paths": {
+    "/": {
+      "get": {
+        "summary": "check login status",
+        "description": "check login status",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api-docs": {
       "get": {
         "description": "",
@@ -550,7 +561,7 @@
                 "userName": {
                   "example": "any"
                 },
-                "timestamp": {
+                "date": {
                   "example": "any"
                 },
                 "task": {
@@ -620,7 +631,7 @@
                 "userName": {
                   "example": "any"
                 },
-                "timestamp": {
+                "date": {
                   "example": "any"
                 },
                 "task": {

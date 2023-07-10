@@ -53,12 +53,12 @@ const createTask = async (req, res) => {
       project: req.body.project
     };
 
-    //validation
+    // validation
     const validationResponse = validation.taskValidation(task);
 
-    if(validationResponse !== true) {
+    if (validationResponse !== true) {
       return res.status(400).json({
-        message: "Validation failed",
+        message: 'Validation failed',
         errors: validationResponse
       });
     }
@@ -100,12 +100,12 @@ const updateTask = async (req, res) => {
       project: req.body.project
     };
 
-    //validation
+    // validation
     const validationResponse = validation.taskValidation(task);
 
-    if(validationResponse !== true) {
+    if (validationResponse !== true) {
       return res.status(400).json({
-        message: "Validation failed",
+        message: 'Validation failed',
         errors: validationResponse
       });
     }

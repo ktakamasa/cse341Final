@@ -45,17 +45,17 @@ const createComment = async (req, res) => {
   try {
     const comment = {
       userName: req.body.userName,
-      timestamp: req.body.timestamp,
+      date: req.body.date,
       task: req.body.task,
       project: req.body.project
     };
 
-    //validation
+    // validation
     const validationResponse = validation.commentValidation(comment);
 
-    if(validationResponse !== true) {
+    if (validationResponse !== true) {
       return res.status(400).json({
-        message: "Validation failed",
+        message: 'Validation failed',
         errors: validationResponse
       });
     }
@@ -91,17 +91,17 @@ const updateComment = async (req, res) => {
     const commentId = new ObjectId(req.params.id);
     const comment = {
       userName: req.body.userName,
-      timestamp: req.body.timestamp,
+      date: req.body.date,
       task: req.body.task,
       project: req.body.project
     };
 
-    //validation
+    // validation
     const validationResponse = validation.commentValidation(comment);
 
-    if(validationResponse !== true) {
+    if (validationResponse !== true) {
       return res.status(400).json({
-        message: "Validation failed",
+        message: 'Validation failed',
         errors: validationResponse
       });
     }

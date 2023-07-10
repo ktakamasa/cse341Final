@@ -51,12 +51,12 @@ const createProject = async (req, res) => {
       tasks: req.body.tasks
     };
 
-    //validation
+    // validation
     const validationResponse = validation.projectValidation(project);
 
-    if(validationResponse !== true) {
+    if (validationResponse !== true) {
       return res.status(400).json({
-        message: "Validation failed",
+        message: 'Validation failed',
         errors: validationResponse
       });
     }
@@ -98,17 +98,15 @@ const updateProject = async (req, res) => {
       tasks: req.body.tasks
     };
 
-
-    //validation
+    // validation
     const validationResponse = validation.projectValidation(project);
 
-    if(validationResponse !== true) {
+    if (validationResponse !== true) {
       return res.status(400).json({
-        message: "Validation failed",
+        message: 'Validation failed',
         errors: validationResponse
       });
     }
-
 
     const response = await mongodb
       .getDb()

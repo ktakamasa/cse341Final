@@ -118,7 +118,7 @@ Content-Type: application/json
 
 {
   "userName": "any",
-  "timestamp": "any",
+  "date": "any",
   "task": "any",
   "project": "any"
 }
@@ -133,7 +133,7 @@ Content-Type: application/json
 
 {
   "userName": "any",
-  "timestamp": "any",
+  "date": "any",
   "task": "any",
   "project": "any"
 }

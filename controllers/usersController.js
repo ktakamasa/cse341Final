@@ -51,17 +51,15 @@ const createUser = async (req, res) => {
       password: req.body.password
     };
 
-
-    //validation
+    // validation
     const validationResponse = validation.userValidation(user);
 
-    if(validationResponse !== true) {
+    if (validationResponse !== true) {
       return res.status(400).json({
-        message: "Validation failed",
+        message: 'Validation failed',
         errors: validationResponse
       });
     }
-  
 
     const response = await mongodb
       .getDb()
@@ -98,13 +96,12 @@ const updateUser = async (req, res) => {
       password: req.body.password
     };
 
-
-    //validation
+    // validation
     const validationResponse = validation.userValidation(user);
 
-    if(validationResponse !== true) {
+    if (validationResponse !== true) {
       return res.status(400).json({
-        message: "Validation failed",
+        message: 'Validation failed',
         errors: validationResponse
       });
     }
