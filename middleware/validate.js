@@ -61,7 +61,8 @@ function projectValidation(project) {
 function commentValidation(comment) {
   const schema = {
     userName: { type: 'string', optional: false, empty: false, max: '20' },
-    date: { type: 'date', optional: false, empty: false },
+    comment: { type: 'string', optional: false, empty: false, max: '250' },
+    date: { type: 'date', optional: false, empty: false, convert: true },
     task: { type: 'string', optional: false, empty: false },
     project: { type: 'string', optional: false, empty: false }
   };

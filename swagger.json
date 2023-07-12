@@ -561,6 +561,9 @@
                 "userName": {
                   "example": "any"
                 },
+                "comment": {
+                  "example": "any"
+                },
                 "date": {
                   "example": "any"
                 },
@@ -629,6 +632,9 @@
               "type": "object",
               "properties": {
                 "userName": {
+                  "example": "any"
+                },
+                "comment": {
                   "example": "any"
                 },
                 "date": {

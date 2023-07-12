@@ -20,11 +20,23 @@ process.on('uncaughtException', (err, origin) => {
   );
 });
 
-mongodb.initDb((err) => {
-  if (err) {
-    console.log(err);
-  } else {
+// mongodb.initDb((err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     app.listen(port);
+//     console.log('Connected to DB and listening on ' + port);
+//   }
+// });
+
+(async () => {
+  try {
+    await mongodb.initDb();
     app.listen(port);
     console.log('Connected to DB and listening on ' + port);
+  } catch (err) {
+    console.log(err);
   }
-});
+})();
+
+module.exports = app;
