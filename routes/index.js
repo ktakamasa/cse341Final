@@ -24,7 +24,7 @@ router.use('/tasks', require('./tasks'));
 router.use('/comments', require('./comments'));
 
 // Profile for logged in user
-app.get('/profile', requiresAuth(), (req, res) => {
+router.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
