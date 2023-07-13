@@ -14,6 +14,12 @@ describe('Test Handlers', () => {
     expect(res.statusCode).toBe(200);
   });
 
+  test('responds to /', async () => {
+    const res = await request.get('/');
+    expect(res.header['content-type']).toBe('text/html; charset=utf-8');
+    expect(res.statusCode).toBe(200);
+  });
+
   /* ****************** GET USERS ******************/
   // test for /users - All users
   test('responds to /users', async () => {
