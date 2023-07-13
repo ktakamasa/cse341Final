@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const commentsController = require('../controllers/commentsController');
 // const validation = require('../middleware/validate');
-const { requiresAuth } = require('express-openid-connect');
+// const { requiresAuth } = require('express-openid-connect');
 const { isAuthenticated } = require('../middleware/authenticate');
 
 // GET all comments
@@ -14,7 +14,7 @@ router.get('/:id', commentsController.getCommentById);
 // POST a new Comment
 router.post(
   '/',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   //   validation.saveComment,
   commentsController.createComment
@@ -23,7 +23,7 @@ router.post(
 // PUT update data in an existing Comment
 router.put(
   '/:id',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   //   validation.saveComment,
   commentsController.updateComment
@@ -32,7 +32,7 @@ router.put(
 // DELETE a Comment
 router.delete(
   '/:id',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   commentsController.deleteComment
 );

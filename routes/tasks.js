@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const tasksController = require('../controllers/tasksController');
 // const validation = require('../middleware/validate');
-const { requiresAuth } = require('express-openid-connect');
+// const { requiresAuth } = require('express-openid-connect');
 const { isAuthenticated } = require('../middleware/authenticate');
 
 // GET all tasks
@@ -14,7 +14,7 @@ router.get('/:id', tasksController.getTaskById);
 // POST a new Task
 router.post(
   '/',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   //   validation.saveTask,
   tasksController.createTask
@@ -23,7 +23,7 @@ router.post(
 // PUT update data in an existing Task
 router.put(
   '/:id',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   //   validation.saveTask,
   tasksController.updateTask
@@ -32,7 +32,7 @@ router.put(
 // DELETE a Task
 router.delete(
   '/:id',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   tasksController.deleteTask
 );

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const projectsController = require('../controllers/projectsController');
 // const validation = require('../middleware/validate');
-const { requiresAuth } = require('express-openid-connect');
+// const { requiresAuth } = require('express-openid-connect');
 const { isAuthenticated } = require('../middleware/authenticate');
 
 // GET all projects
@@ -14,7 +14,7 @@ router.get('/:id', projectsController.getProjectById);
 // POST a new Project
 router.post(
   '/',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   //   validation.saveProject,
   projectsController.createProject
@@ -23,7 +23,7 @@ router.post(
 // PUT update data in an existing Project
 router.put(
   '/:id',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   //   validation.saveProject,
   projectsController.updateProject
@@ -32,7 +32,7 @@ router.put(
 // DELETE a Project
 router.delete(
   '/:id',
-  requiresAuth(),
+  // requiresAuth(),
   isAuthenticated,
   projectsController.deleteProject
 );

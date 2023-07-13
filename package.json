@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "jest": {
+    "preset": "@shelf/jest-mongodb"
+  },
   "scripts": {
     "start": "nodemon server.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

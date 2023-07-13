@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const authenticator = require('../middleware/authenticate');
-const { auth } = require('express-openid-connect');
+const { auth, requiresAuth } = require('express-openid-connect');
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 router.use(auth(authenticator.config));
@@ -22,5 +22,10 @@ router.use('/tasks', require('./tasks'));
 
 // Comments
 router.use('/comments', require('./comments'));
+
+// Profile for logged in user
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 module.exports = router;
