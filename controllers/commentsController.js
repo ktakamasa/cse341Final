@@ -45,6 +45,7 @@ const createComment = async (req, res) => {
   try {
     const comment = {
       userName: req.body.userName,
+      comment: req.body.comment,
       date: req.body.date,
       task: req.body.task,
       project: req.body.project
@@ -91,6 +92,7 @@ const updateComment = async (req, res) => {
     const commentId = new ObjectId(req.params.id);
     const comment = {
       userName: req.body.userName,
+      comment: req.body.comment,
       date: req.body.date,
       task: req.body.task,
       project: req.body.project
